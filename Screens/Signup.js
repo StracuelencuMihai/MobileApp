@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, ScrollView } from "react-native";
 import Text from "@kaloraat/react-native-text";
-import UserInput from '../components/Authentication/UserInput';
-import SubmitButton from '../components/Authentication/SubmitButton';
-import axios from 'axios';
+import UserInput from "../components/Authentication/UserInput";
+import SubmitButton from "../components/Authentication/SubmitButton";
+import axios from "axios";
+import LogoSignup from "../components/Authentication/LogoSignup";
 
 
 const SignUp = () => {
@@ -40,7 +41,10 @@ const SignUp = () => {
 
     return (
 
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center' }}>
+
+            <LogoSignup />
+
             <Text title center>
                 Sign Up
             </Text>
@@ -66,18 +70,13 @@ const SignUp = () => {
                 secureTextEntry={true}
                 autoCompleteType="password" />
 
-            <SubmitButton 
-            title="Sing Up" 
-            handleSubmit={handleSubmit} 
-            loading={loading}
+            <SubmitButton
+                title="Sing Up"
+                handleSubmit={handleSubmit}
+                loading={loading}
             />
 
-
-
-
-            <Text>{JSON.stringify({ name, email, password }, null, 4)}</Text>
-
-        </View>
+        </ScrollView>
     );
 };
 
