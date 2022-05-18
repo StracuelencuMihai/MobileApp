@@ -1,5 +1,6 @@
 import React from "react"
 import { TouchableOpacity } from "react-native";
+import { TextInput, StyleSheet } from 'react-native';
 import Text from "@kaloraat/react-native-text"
 
 

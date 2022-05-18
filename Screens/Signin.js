@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Platform} from "react-native";
+import { View, ScrollView } from "react-native";
 import Text from "@kaloraat/react-native-text";
 import UserInput from "../components/Authentication/UserInput";
 import SubmitButton from "../components/Authentication/SubmitButton";
 import axios from "axios";
 import LogoSignup from "../components/Authentication/LogoSignup";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Position from "react-native/Libraries/Components/Touchable/Position";
 
 
 
-const SignUp = () => {
-    const [name, setName] = useState("");
+const Signin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -22,10 +22,9 @@ const SignUp = () => {
             setLoading(false);
             return;
         }
-        console.log("SIGN UP REQUEST =>", name, email, password);
+        // console.log("SIGNINREQUEST =>", name, email, password);
         try {
-            const { data } = await axios.post('http://localhost:8000/api/signup', {
-                name,
+            const { data } = await axios.post('http://localhost:8000/api/signin', {
                 email,
                 password,
             });
@@ -59,16 +58,13 @@ const SignUp = () => {
             }}>
                 <LogoSignup />
 
-                <Text title center>
-                    Sign Up
+                <Text title center style={{
+                    marginBottom: 50,
+                    marginTop: 5,
+                }}>
+                    Sign In
                 </Text>
 
-                <UserInput
-                    name="NAME"
-                    value={name}
-                    setValue={setName}
-                    autoCapitalize="words"
-                    autoCorrect={false} />
 
                 <UserInput
                     name="EMAIL"
@@ -84,16 +80,31 @@ const SignUp = () => {
                     secureTextEntry={true}
                     autoCompleteType="password" />
 
+                <Text center bold style={{
+                    flex: 1,
+                    textDecorationLine: 'underline',
+                    marginTop: 10,
+                    color: "#fb5607",
+                    textAlign: 'right',
+                    marginBottom: 35,
+                    marginRight: 24,
+                    
+                }}>
+                    Forgot password ?
+                </Text>
                 <SubmitButton
-                    title="Sing Up"
+                    title="Sing In"
                     handleSubmit={handleSubmit}
                     loading={loading}
                 />
                 <Text small center>
-                    Already have an account?
-                    <Text color="#ff2222">
-                        Sign In
-                    </Text>
+                    Not yet registered ?</Text>
+
+                <Text color="#ff2222" center style={{
+                    textDecorationLine: 'underline',
+                    marginTop: 10,
+                }}>
+                    Sign Up
                 </Text>
 
             </KeyboardAwareScrollView>
@@ -103,4 +114,4 @@ const SignUp = () => {
 };
 
 
-export default SignUp;
+export default Signin;
