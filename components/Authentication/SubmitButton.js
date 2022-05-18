@@ -9,7 +9,7 @@ const submitButton = ({title}) => (
         style={{
             backgroundColor: '#ffcd38',
             height: 50,
-            marginBottom: 120,
+            marginBottom: 30,
             justifyContent: "center",
             marginHorizontal: 120,
             borderRadius: 20,

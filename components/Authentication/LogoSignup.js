@@ -6,13 +6,14 @@ const LogoSignup = () => (
 
     <View 
     style={{
+        marginTop: 50,
         justifyContent: "center",
         alignItems: "center",
     }}>
 
         <Image 
         source={require("../../assets/logo.png")}
-        style={{ width: 300, height: 200, marginVertical: 0.5 }}
+        style={{ width: 200, height: 100, marginVertical: 10 }}
         />
 
     </View >
