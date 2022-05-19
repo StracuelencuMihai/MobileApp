@@ -7,10 +7,11 @@ import axios from "axios";
 import LogoSignup from "../components/Authentication/LogoSignup";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Position from "react-native/Libraries/Components/Touchable/Position";
+import { StatusBar } from 'expo-status-bar';
 
 
 
-const Signin = () => {
+const Signin = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -44,6 +45,7 @@ const Signin = () => {
 
         <View style={{
 
+            backgroundColor: '#FFEDED',
             flex: 1,
             justifyContent: "center",
 
@@ -59,6 +61,7 @@ const Signin = () => {
                 <LogoSignup />
 
                 <Text title center style={{
+                    color: '#000000',
                     marginBottom: 50,
                     marginTop: 5,
                 }}>
@@ -84,11 +87,11 @@ const Signin = () => {
                     flex: 1,
                     textDecorationLine: 'underline',
                     marginTop: 10,
-                    color: "#fb5607",
+                    color: "#FFCD38",
                     textAlign: 'right',
                     marginBottom: 35,
                     marginRight: 24,
-                    
+
                 }}>
                     Forgot password ?
                 </Text>
@@ -97,13 +100,16 @@ const Signin = () => {
                     handleSubmit={handleSubmit}
                     loading={loading}
                 />
-                <Text small center>
+                <Text small center style={{
+                    color: "#ecf0f1",
+                }}>
                     Not yet registered ?</Text>
 
-                <Text color="#ff2222" center style={{
-                    textDecorationLine: 'underline',
-                    marginTop: 10,
-                }}>
+                <Text onPress={() => navigation.navigate('Signup')}
+                    color="#FF4949" center style={{
+                        textDecorationLine: 'underline',
+                        marginTop: 10,
+                    }}>
                     Sign Up
                 </Text>
 

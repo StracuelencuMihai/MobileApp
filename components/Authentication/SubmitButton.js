@@ -8,6 +8,7 @@ const submitButton = ({title}) => (
     <TouchableOpacity
 
         style={{
+            
             backgroundColor: '#ffcd38',
             height: 50,
             marginBottom: 30,
@@ -15,7 +16,7 @@ const submitButton = ({title}) => (
             marginHorizontal: 120,
             borderRadius: 20,
             borderWidth: 1,
-            borderColor: '#fff'
+            // borderColor: '#fff'
         }}>
 
         <Text bold medium center>

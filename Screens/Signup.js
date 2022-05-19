@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Platform} from "react-native";
+import { View, ScrollView, StyleSheet, Platform } from "react-native";
 import Text from "@kaloraat/react-native-text";
 import UserInput from "../components/Authentication/UserInput";
 import SubmitButton from "../components/Authentication/SubmitButton";
@@ -9,11 +9,15 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+
+    console.log("NAVIGATION -> ", navigation)
+
+
 
     const handleSubmit = async () => {
         setLoading(true)
@@ -77,7 +81,9 @@ const SignUp = () => {
                     autoCompleteType="email"
                     keyboardType="email-address" />
 
-                <UserInput
+                <UserInput style={{
+                    color: "#FF4949",
+                }}
                     name="PASSWORD"
                     value={password}
                     setValue={setPassword}
@@ -90,11 +96,15 @@ const SignUp = () => {
                     loading={loading}
                 />
                 <Text small center>
-                    Already have an account?
-                    <Text color="#ff2222">
-                        Sign In
-                    </Text>
+                    Already have an account?</Text>
+
+                <Text onPress={() => navigation.navigate('Signin')} center color="#FF4949" style={{
+                    marginTop: 15,
+                    textDecorationLine: 'underline',
+                }}>
+                    Sign In
                 </Text>
+
 
             </KeyboardAwareScrollView>
 
